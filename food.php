@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +10,6 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="style.css">
-   
 
 </head>
 <body>
@@ -37,7 +34,6 @@
 
 </header>
 
-
 <!-- header section ends -->
 
 <!-- home section starts  -->
@@ -59,7 +55,6 @@
     </div>
 
 </section>
-
 
 <!-- home section ends -->
 
@@ -123,8 +118,6 @@
     </div>
 
 </section>
-
-
 
 <!-- speciality section ends -->
 
@@ -401,78 +394,20 @@
         <div class="image">
             <img src="images/order-img.jpg" alt="">
         </div>
-      
-        <form action="http://localhost/food/food.php" method="post">
-            <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$name = $_POST['name'];
-    $email = $_POST['email'];
-    $number = $_POST['number'];
-    $food_name = $_POST['food_name'];
-	$address = $_POST['address'];
-	
-
-
-
-//COnnecting to the database
-  $servername = "localhost";
-   $username = "root";
-   $password = "";
-   $database = "sneha";
-
-   //Create a connection
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-if (!$conn) {
-  
-  die("Sorry we failed to connect:". mysqli_connect_error());
-}
-else{
-
-echo "";
-
-//Submit therse to a database
-
-
-
-//sql query
-$sql = "INSERT INTO `food` ( `Name`, `email`, `number`, `food-name`, `address`) VALUES ( '$name', '$email', '$number', '$food_name', '$address')";
-$result = mysqli_query($conn,$sql);
-
-// check the table 
-if($result){
-  echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>Success!</strong> Your Food Name ' .$food_name. ' and Address ' .$address. ' has been ordered successfully
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
-
-}
-else
-{
-echo "The The record was not inserted sucessfully  because of this eroor ---> ". mysqli_error($conn);
-}
-
-}
-
-//Submit therse to a database
-
-}
-
-
-?>
+        <form action="">
 
             <div class="inputBox">
-                <input type="text" placeholder="name" name="name">
-                <input type="email" placeholder="email" name="email">
+                <input type="text" placeholder="name">
+                <input type="email" placeholder="email">
             </div>
 
             <div class="inputBox">
-                <input type="number" placeholder="number" name="number">
-                <input type="text" placeholder="food name" name="food_name">
+                <input type="number" placeholder="number">
+                <input type="text" placeholder="food name">
             </div>
 
-            <textarea placeholder="address" name="address" id="" cols="30" rows="10"></textarea>
+            <textarea placeholder="address" name="" id="" cols="30" rows="10"></textarea>
 
             <input type="submit" value="order now" class="btn">
 
